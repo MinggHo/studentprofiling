@@ -1,0 +1,182 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ /* icon prefix focus color */
+ .input-field .prefix {
+   color: #29b6f6  !important;
+ }
+
+ /* label focus color */
+ .input-field input:focus + label {
+   color: #29b6f6  !important;
+ }
+
+ .input-field input:focus {
+  border-bottom: 1px solid #29b6f6 !important;
+  box-shadow: 0 1px 0 0 #29b6f6 !important;
+}
+
+/* valid color */
+.input-field input.valid {
+  border-bottom: 1px solid #000000 !important;
+  box-shadow: 0 1px 0 0 #000000 !important;
+}
+
+/* disable color */
+.input-field input:disabled {
+  /*color: #444 !important;*/
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #0089ec !important;
+}
+
+.input-field select.valid {
+  border-bottom: 1px solid #000000 !important;
+  box-shadow: 0 1px 0 0 #000000 !important;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.form1 {
+  display: none;
+}
+
+#tableSoalan {
+  display: none;
+}
+
+#hide {
+  display: none;
+}
+
+#hide1 {
+  display: none;
+}
+
+.form2 {
+  display: none;
+}
+
+.form3 {
+  display: none;
+}
+.form4 {
+  display: none;
+}
+.form5 {
+  display: none;
+}
+.form6 {
+  display: none;
+}
+.form7 {
+  display: none;
+}
+.form8 {
+  display: none;
+}
+.form9 {
+  display: none;
+}
+.form10 {
+  display: none;
+}
+
+.progress {
+  background-color: #f2f2f2 !important;
+}
+.progress .determinate {
+  background-color: #e64f4b !important;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #e53935 !important;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #fff !important;
+    left: 24px;
+}
+
+#skorMarkah {
+  display: none;
+}
+
+@media print
+{
+  .card {
+    display: none !important;
+  }
+
+  #hilang {
+    display: none !important;
+  }
+
+  #skorMarkah {
+    display: inline;
+  }
+
+  .select-dropdown {
+    display: none ;
+  }
+
+  .header {
+    display: none !important;
+  }
+
+  nav {
+    display: none !important;
+  }
+
+  footer {
+    display: none !important;
+  }
+
+  button {
+    display: none !important;
+  }
+
+  input {
+    border-bottom: none !important;
+  }
+
+  label {
+    color: #000000 !important;
+  }
+
+  input.valid {
+    border-bottom: none !important;
+  }
+
+  .dropdown-content {
+    display: none;
+  }
+
+  input[type=text]:disabled {
+    color: #000000 !important;
+  }
+
+  input[type=number]:disabled {
+    color: #000000 !important;
+  }
+
+  .input-field .prefix.active {
+    color: #000000  !important;
+  }
+
+  .input-field input.valid {
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+}
