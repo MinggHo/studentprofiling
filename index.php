@@ -1,7 +1,8 @@
 <?php
-  session_start();
+session_start();
 
       if(isset($_SESSION['status'])) {
+
         if ($_SESSION['status'] == 'STUDENT') {
           header('Location: ./user/index.php');
         }
@@ -9,6 +10,7 @@
         if ($_SESSION['status'] == 'ADMIN') {
           header('Location: ./admin/index.php');
         }
+
       }
 
 ?>

@@ -25,13 +25,16 @@
       <div class="pull-left info">
         <p>
         <?php echo $_SESSION['kad_matrik']; ?>
+        <br>
+        <?php echo $_SESSION['nama_pelajar']; ?>
         </p>
       </div>
     </div>
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
-      <li><a href="index.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+      <li><a href="index.php"><i class="fa fa-dashboard"></i> <span>Panel Kawalan</span></a></li>
+      <li><a href="profil_pengguna.php"><i class="fa fa-user-plus"></i> <span>Profil Pengguna</span></a></li>
       <li><a href="../controller/ctrlAuthentication.php?a=logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     </ul>
   </section>

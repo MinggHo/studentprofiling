@@ -257,7 +257,7 @@
 
             function insertData(arr) {
 
-                var agg = document.getElementById('skorAggresif');
+                var agg = document.getElementById('skorAgresif');
                 agg.innerHTML = "Markah anda : " + arr[0];
 
                 var ana = document.getElementById('skorAnalitikal');
@@ -266,7 +266,7 @@
                 var aut = document.getElementById('skorAutonomi');
                 aut.innerHTML = "Markah anda : " + arr[2];
 
-                var bsd = document.getElementById('skorBersandar');
+                var bsd = document.getElementById('skorKreatif');
                 bsd.innerHTML = "Markah anda : " + arr[3];
 
                 var eks = document.getElementById('skorEkstrovert');
@@ -275,7 +275,7 @@
                 var itl = document.getElementById('skorIntelektual');
                 itl.innerHTML = "Markah anda : " + arr[5];
 
-                var int = document.getElementById('skorIntrovert');
+                var int = document.getElementById('skorBerwawasan');
                 int.innerHTML = "Markah anda : " + arr[6];
 
                 var kpl = document.getElementById('skorKepelbagaian');
@@ -310,10 +310,10 @@
                     "<p>Aggresif : " + arr[0] + "</br>" +
                     "Analitikal : " + arr[1] + "</br>" +
                     "Autonomi : " + arr[2] + "</br>" +
-                    "Bersandar : " + arr[3] + "</br>" +
+                    "Kreatif : " + arr[3] + "</br>" +
                     "Ekstrovert : " + arr[4] + "</br>" +
                     "Intelektual : " + arr[5] + "</br>" +
-                    "Introvert : " + arr[6] + "</br>" +
+                    "Berwawasan : " + arr[6] + "</br>" +
                     "Kepelbagaian : " + arr[7] + "</p>";
 
                 var cardMarkah2 = document.getElementById('cardMarkah2');
@@ -351,7 +351,7 @@
             function getRadar(arr) {
                 // console.log("Array : " + arr);
                 var data = {
-                    labels: ["Agresif", "Analitikal", "Autonomi", "Bersandar", "Ekstrovert", "Intelektual", "Introvert", "Kepelbagaian", "Ketahanan", "Kritik Diri", "Mengawal", "Menolong", "Sokongan", "Struktur", "Pencapaian",
+                    labels: ["Agresif", "Analitikal", "Autonomi", "Kreatif", "Ekstrovert", "Intelektual", "Berwawasan", "Kepelbagaian", "Ketahanan", "Kritik Diri", "Mengawal", "Menolong", "Sokongan", "Struktur", "Pencapaian",
                         "Kejujuran"
                     ],
                     datasets: [{

@@ -79,10 +79,10 @@ $skor_baru_table = skorBaruTable();
                   <th>AGG</th>
                   <th>ANA</th>
                   <th>AUT</th>
-                  <th>BSD</th>
+                  <th>KTF</th>
                   <th>EKS</th>
                   <th>ITL</th>
-                  <th>INT</th>
+                  <th>WSN</th>
                   <th>KEP</th>
                   <th>THN</th>
                   <th>KRD</th>
@@ -109,10 +109,10 @@ $skor_baru_table = skorBaruTable();
                       echo '<td>'.$row['markah_agg'].'</td>';
                       echo '<td>'.$row['markah_ana'].'</td>';
                       echo '<td>'.$row['markah_aut'].'</td>';
-                      echo '<td>'.$row['markah_ber'].'</td>';
+                      echo '<td>'.$row['markah_ktf'].'</td>';
                       echo '<td>'.$row['markah_eks'].'</td>';
                       echo '<td>'.$row['markah_int'].'</td>';
-                      echo '<td>'.$row['markah_itr'].'</td>';
+                      echo '<td>'.$row['markah_wsn'].'</td>';
                       echo '<td>'.$row['markah_kep'].'</td>';
                       echo '<td>'.$row['markah_ket'].'</td>';
                       echo '<td>'.$row['markah_kri'].'</td>';

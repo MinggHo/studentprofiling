@@ -86,7 +86,8 @@
                           <th>Fakulti</th>
                           <th>Kursus</th>
                           <th>Tahun</th>
-                          <th>Status Inventori</th>
+                          <th>Kekerapan</th>
+                          <th>Status Invetori</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -107,10 +108,12 @@
                               if(mysqli_num_rows($student_rekod)) {
                                 while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
                                   if ($maklumat['bilangan'] > 0) {
+                                    echo '<td>' . $maklumat['bilangan'] . '</td>';
                                     echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
                                   }
                                 }
                               } else {
+                                echo '<td>0</td>';
                                 echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
                               }
 
@@ -126,7 +129,8 @@
                           <th>Fakulti</th>
                           <th>Kursus</th>
                           <th>Tahun</th>
-                          <th>Status Inventori</th>
+                          <th>Kekerapan</th>
+                          <th>Status Invetori</th>
                         </tr>
                         </tfoot>
                       </table>
@@ -142,6 +146,7 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
+                    <th>Kekerapan</th>
                     <th>Status Invetori</th>
                   </tr>
                   </thead>
@@ -163,10 +168,12 @@
                         if(mysqli_num_rows($student_rekod)) {
                           while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
                             if ($maklumat['bilangan'] > 0) {
+                              echo '<td>' . $maklumat['bilangan'] . '</td>';
                               echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
                             }
                           }
                         } else {
+                          echo '<td>0</td>';
                           echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
                         }
 
@@ -182,6 +189,7 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
+                    <th>Kekerapan</th>
                     <th>Status Inventori</th>
                   </tr>
                   </tfoot>
@@ -197,7 +205,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -218,10 +227,12 @@
                         if(mysqli_num_rows($student_rekod)) {
                           while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
                             if ($maklumat['bilangan'] > 0) {
+                              echo '<td>' . $maklumat['bilangan'] . '</td>';
                               echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
                             }
                           }
                         } else {
+                          echo '<td>0</td>';
                           echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
                         }
 
@@ -237,7 +248,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -252,7 +264,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -273,10 +286,12 @@
                         if(mysqli_num_rows($student_rekod)) {
                           while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
                             if ($maklumat['bilangan'] > 0) {
+                              echo '<td>' . $maklumat['bilangan'] . '</td>';
                               echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
                             }
                           }
                         } else {
+                          echo '<td>0</td>';
                           echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
                         }
 
@@ -292,7 +307,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -307,7 +323,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -325,15 +342,17 @@
 
                         $student_rekod = studentRekod($row['kad_matrik']);
 
-                        if(mysqli_num_rows($student_rekod)) {
-                          while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
-                            if ($maklumat['bilangan'] > 0) {
-                              echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
+                          if(mysqli_num_rows($student_rekod)) {
+                            while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
+                              if ($maklumat['bilangan'] > 0) {
+                                echo '<td>' . $maklumat['bilangan'] . '</td>';
+                                echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
+                              }
                             }
+                          } else {
+                            echo '<td>0</td>';
+                            echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
                           }
-                        } else {
-                          echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
-                        }
 
                       echo '</tr>';
                       $i++;
@@ -347,7 +366,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -361,7 +381,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -382,10 +403,12 @@
                         if(mysqli_num_rows($student_rekod)) {
                           while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
                             if ($maklumat['bilangan'] > 0) {
+                              echo '<td>' . $maklumat['bilangan'] . '</td>';
                               echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
                             }
                           }
                         } else {
+                          echo '<td>0</td>';
                           echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
                         }
 
@@ -401,7 +424,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -415,6 +439,7 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
+                    <th>Kekerapan</th>
                     <th>Status Invetori</th>
                   </tr>
                   </thead>
@@ -436,10 +461,12 @@
                         if(mysqli_num_rows($student_rekod)) {
                           while ($maklumat = mysqli_fetch_assoc($student_rekod)) {
                             if ($maklumat['bilangan'] > 0) {
+                              echo '<td>' . $maklumat['bilangan'] . '</td>';
                               echo '<td><i class="fa fa-fw fa-thumbs-o-up" style="color:green"></i></td>';
                             }
                           }
                         } else {
+                          echo '<td>0</td>';
                           echo '<td><i class="fa fa-fw fa-thumbs-o-down" style="color:red"></i></td>';
                         }
 
@@ -455,7 +482,8 @@
                     <th>Fakulti</th>
                     <th>Kursus</th>
                     <th>Tahun</th>
-                    <th>Status Inventori</th>
+                    <th>Kekerapan</th>
+                    <th>Status Invetori</th>
                   </tr>
                   </tfoot>
                 </table>

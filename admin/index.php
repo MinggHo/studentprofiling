@@ -1,11 +1,18 @@
 <?php
-session_start();
-if(!isset($_SESSION['login']) || $_SESSION['login'] == 0){
-  header('Location: ../index.php');
-}
+  session_start();
+
+  if(!isset($_SESSION['login']) || $_SESSION['login'] == 0){
+
+    header('Location: ../index.php');
+  }
+
+  if ($_SESSION['status'] == 'STUDENT') {
+    header('Location: ../user/index.php');
+  }
 
 require_once "../model/query.php";
 $bil_user = bilanganUser();
+$bil_user_jawap = bilanganUserJawap();
 $bil_skor = bilanganSkor();
 $bil_skor_latest = bilanganSkorLatest();
 $skor_baru = skorBaru();
@@ -34,7 +41,7 @@ $skor_baru = skorBaru();
   <link rel="stylesheet" href="./plugins/datatables/dataTables.bootstrap.css">
 
   <link rel="icon" href="dist/img/logoutem.jpg">
-  
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,7 +85,7 @@ $skor_baru = skorBaru();
                 }?>
               </h3>
 
-              <p>Skor Baru</p>
+              <p>Skor Baru dari : <span id="nextDate"></span> - <span id="currDate"></span></p>
             </div>
             <div class="icon">
               <i class="ion ion-archive"></i>
@@ -92,6 +99,12 @@ $skor_baru = skorBaru();
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3>
+                <?php if ($bil_user_jawap->num_rows == true) {
+                  echo $bil_user_jawap->num_rows;
+                } else {
+                  echo '0';
+                }?>
+                 /
                 <?php if ($bil_user->num_rows == true) {
                   echo $bil_user->num_rows;
                 } else {
@@ -149,10 +162,10 @@ $skor_baru = skorBaru();
                 <th>AGG</th>
                 <th>ANA</th>
                 <th>AUT</th>
-                <th>BSD</th>
+                <th>KTF</th>
                 <th>EKS</th>
                 <th>ITL</th>
-                <th>INT</th>
+                <th>WSN</th>
                 <th>KEP</th>
                 <th>THN</th>
                 <th>KRD</th>
@@ -175,10 +188,10 @@ $skor_baru = skorBaru();
                     echo '<td>'.$row['markah_agg'].'</td>';
                     echo '<td>'.$row['markah_ana'].'</td>';
                     echo '<td>'.$row['markah_aut'].'</td>';
-                    echo '<td>'.$row['markah_ber'].'</td>';
+                    echo '<td>'.$row['markah_ktf'].'</td>';
                     echo '<td>'.$row['markah_eks'].'</td>';
                     echo '<td>'.$row['markah_int'].'</td>';
-                    echo '<td>'.$row['markah_itr'].'</td>';
+                    echo '<td>'.$row['markah_wsn'].'</td>';
                     echo '<td>'.$row['markah_kep'].'</td>';
                     echo '<td>'.$row['markah_ket'].'</td>';
                     echo '<td>'.$row['markah_kri'].'</td>';
@@ -215,7 +228,7 @@ $skor_baru = skorBaru();
                       <b>AUT</b> : Autonomi
                     </td>
                     <td>
-                      <b>BSD</b> : Bersandar
+                      <b>KTF</b> : Kreatif
                     </td>
                   </tr>
                   <tr>
@@ -226,7 +239,7 @@ $skor_baru = skorBaru();
                       <b>ITL</b> : Intelektual
                     </td>
                     <td>
-                      <b>INT</b> : Introvert
+                      <b>WSN</b> : Wawasan
                     </td>
                     <td>
                       <b>KEP</b> : Kepelbagaian
@@ -300,7 +313,19 @@ $skor_baru = skorBaru();
 
 <script>
   $(function () {
-    $(document).ajaxStart(function() { Pace.restart(); });
+
+    var currDate = document.getElementById('currDate');
+    var nextDate = document.getElementById('nextDate');
+
+    var today = new Date();
+
+    currDate.innerHTML = today.getDate() + " / " + (today.getMonth()+1) + " / " + today.getFullYear();
+
+    var dateOffset = (24*60*60*1000) * 7;
+    today.setTime(today.getTime() - dateOffset);
+
+    nextDate.innerHTML = today.getDate() + " / " + (today.getMonth()+1) + " / " + today.getFullYear();
+
     $("#example1").DataTable();
   });
 </script>

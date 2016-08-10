@@ -17,10 +17,10 @@ if ($skor_pelajar) {
       $row['markah_agg'] ,
       $row['markah_ana'] ,
       $row['markah_aut'] ,
-      $row['markah_ber'] ,
+      $row['markah_ktf'] ,
       $row['markah_eks'] ,
       $row['markah_int'] ,
-      $row['markah_itr'] ,
+      $row['markah_wsn'] ,
       $row['markah_kep'] ,
       $row['markah_ket'] ,
       $row['markah_kri'] ,
@@ -40,10 +40,10 @@ if ($skor_pelajar) {
             $row['avg_agg'] ,
             $row['avg_ana'] ,
             $row['avg_aut'] ,
-            $row['avg_ber'] ,
+            $row['avg_ktf'] ,
             $row['avg_eks'] ,
             $row['avg_int'] ,
-            $row['avg_itr'] ,
+            $row['avg_wsn'] ,
             $row['avg_kep'] ,
             $row['avg_ket'] ,
             $row['avg_kri'] ,
@@ -141,9 +141,9 @@ if ($skor_pelajar) {
               <p>
                 <?php if ($skor_pelajar) { ?>
                 <span class="label label-success">Agresif : <?php echo $array[0]; ?></span><span class="label label-success pull-right"> Analitikal : <?php echo $array[1]; ?></span> </br>
-                <span class="label label-success">Autonomi : <?php echo $array[2]; ?></span><span class="label label-success pull-right"> Bersandar : <?php echo $array[3]; ?></span> </br>
+                <span class="label label-success">Autonomi : <?php echo $array[2]; ?></span><span class="label label-success pull-right"> Kreatif : <?php echo $array[3]; ?></span> </br>
                 <span class="label label-success">Ekstrovert : <?php echo $array[4]; ?></span><span class="label label-success pull-right"> Intelektual : <?php echo $array[5]; ?></span> </br>
-                <span class="label label-success">Introvert : <?php echo $array[6]; ?></span><span class="label label-success pull-right"> Kepelbagaian : <?php echo $array[7]; ?></span> </br>
+                <span class="label label-success">Wawasan : <?php echo $array[6]; ?></span><span class="label label-success pull-right"> Kepelbagaian : <?php echo $array[7]; ?></span> </br>
                 <span class="label label-success">Ketahanan : <?php echo $array[8]; ?></span><span class="label label-success pull-right"> Kritik Diri : <?php echo $array[9]; ?></span> </br>
                 <span class="label label-success">Mengawal : <?php echo $array[10]; ?></span><span class="label label-success pull-right"> Menolong : <?php echo $array[11]; ?></span> </br>
                 <span class="label label-success">Sokongan : <?php echo $array[12]; ?></span><span class="label label-success pull-right"> Struktur : <?php echo $array[13]; ?></span> </br>
@@ -201,10 +201,10 @@ if ($skor_pelajar) {
                 <th>AGG</th>
                 <th>ANA</th>
                 <th>AUT</th>
-                <th>BSD</th>
+                <th>KTF</th>
                 <th>EKS</th>
                 <th>ITL</th>
-                <th>INT</th>
+                <th>WSN</th>
                 <th>KEP</th>
                 <th>THN</th>
                 <th>KRD</th>
@@ -227,10 +227,10 @@ if ($skor_pelajar) {
                     echo '<td>'.$row['markah_agg'].'</td>';
                     echo '<td>'.$row['markah_ana'].'</td>';
                     echo '<td>'.$row['markah_aut'].'</td>';
-                    echo '<td>'.$row['markah_ber'].'</td>';
+                    echo '<td>'.$row['markah_ktf'].'</td>';
                     echo '<td>'.$row['markah_eks'].'</td>';
                     echo '<td>'.$row['markah_int'].'</td>';
-                    echo '<td>'.$row['markah_itr'].'</td>';
+                    echo '<td>'.$row['markah_wsn'].'</td>';
                     echo '<td>'.$row['markah_kep'].'</td>';
                     echo '<td>'.$row['markah_ket'].'</td>';
                     echo '<td>'.$row['markah_kri'].'</td>';
@@ -299,7 +299,7 @@ if ($skor_pelajar) {
     var ctx = document.getElementById("myChart").getContext("2d");
 
     var data = {
-      labels: ["Agresif", "Analitikal", "Autonomi", "Bersandar", "Ekstrovert", "Intelektual", "Introvert", "Kepelbagaian", "Ketahanan", "Kritik Diri", "Mengawal", "Menolong", "Sokongan", "Struktur", "Pencapaian",
+      labels: ["Agresif", "Analitikal", "Autonomi", "Kreatif", "Ekstrovert", "Intelektual", "Wawasan", "Kepelbagaian", "Ketahanan", "Kritik Diri", "Mengawal", "Menolong", "Sokongan", "Struktur", "Pencapaian",
           "Kejujuran"
       ],
       datasets: [

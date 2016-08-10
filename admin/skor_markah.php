@@ -6,13 +6,54 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == 0){
 
 require_once "../model/query.php";
 
-$purata_fakulti_FTMK = purataFakulti('FTMK');
-$purata_fakulti_FKE = purataFakulti('FKE');
-$purata_fakulti_FKEKK = purataFakulti('FKEKK');
-$purata_fakulti_FKM = purataFakulti('FKM');
-$purata_fakulti_FKP = purataFakulti('FKP');
-$purata_fakulti_FTK = purataFakulti('FTK');
-$purata_fakulti_FPTT = purataFakulti('FPTT');
+$purata_fakulti_FTMK = kiraTinggiFakulti('FTMK');
+$rendah_fakulti_FTMK = kiraRendahFakulti('FTMK');
+$sederhana_fakulti_FTMK = kiraSederhanaFakulti('FTMK');
+$totalBilanganFTMK = totalBilangan('FTMK');
+$row = mysqli_fetch_assoc($totalBilanganFTMK);
+$bilFTMK = $row['bil'];
+
+$purata_fakulti_FKE = kiraTinggiFakulti('FKE');
+$rendah_fakulti_FKE = kiraRendahFakulti('FKE');
+$sederhana_fakulti_FKE = kiraSederhanaFakulti('FKE');
+$totalBilanganFKE = totalBilangan('FKE');
+$row = mysqli_fetch_assoc($totalBilanganFKE);
+$bilFKE = $row['bil'];
+
+$purata_fakulti_FKEKK = kiraTinggiFakulti('FKEKK');
+$rendah_fakulti_FKEKK = kiraRendahFakulti('FKEKK');
+$sederhana_fakulti_FKEKK = kiraSederhanaFakulti('FKEKK');
+$totalBilanganFKEKK = totalBilangan('FKEKK');
+$row = mysqli_fetch_assoc($totalBilanganFKEKK);
+$bilFKEKK = $row['bil'];
+
+$purata_fakulti_FKM = kiraTinggiFakulti('FKM');
+$rendah_fakulti_FKM = kiraRendahFakulti('FKM');
+$sederhana_fakulti_FKM = kiraSederhanaFakulti('FKM');
+$totalBilanganFKM = totalBilangan('FKM');
+$row = mysqli_fetch_assoc($totalBilanganFKM);
+$bilFKM = $row['bil'];
+
+$purata_fakulti_FKP = kiraTinggiFakulti('FKP');
+$rendah_fakulti_FKP = kiraRendahFakulti('FKP');
+$sederhana_fakulti_FKP = kiraSederhanaFakulti('FKP');
+$totalBilanganFKP = totalBilangan('FKP');
+$row = mysqli_fetch_assoc($totalBilanganFKP);
+$bilFKP = $row['bil'];
+
+$purata_fakulti_FTK = kiraTinggiFakulti('FTK');
+$rendah_fakulti_FTK = kiraRendahFakulti('FTK');
+$sederhana_fakulti_FTK = kiraSederhanaFakulti('FTK');
+$totalBilanganFTK = totalBilangan('FTK');
+$row = mysqli_fetch_assoc($totalBilanganFTK);
+$bilFTK = $row['bil'];
+
+$purata_fakulti_FPTT = kiraTinggiFakulti('FPTT');
+$rendah_fakulti_FPTT = kiraRendahFakulti('FPTT');
+$sederhana_fakulti_FPTT = kiraSederhanaFakulti('FPTT');
+$totalBilanganFPTT = totalBilangan('FPTT');
+$row = mysqli_fetch_assoc($totalBilanganFPTT);
+$bilFPTT = $row['bil'];
 ?>
 
 <!DOCTYPE html>
@@ -65,417 +106,525 @@ $purata_fakulti_FPTT = purataFakulti('FPTT');
     <!-- Main content -->
     <section class="content">
        <!-- Main row -->
-      <div class="row">
-        <div class="col-lg-12">
-        <!-- Left col -->
-        <div class="box box-primary">
-          <div class="box-header">
-            <h3 class="box-title">Purata Skor</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i></button>
-              </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <table id="example1" class="table table-condensed table-striped">
-              <thead>
-              <tr>
-                <th>Fakulti</th>
-                <th>AGG</th>
-                <th>ANA</th>
-                <th>AUT</th>
-                <th>BSD</th>
-                <th>EKS</th>
-                <th>ITL</th>
-                <th>INT</th>
-                <th>KEP</th>
-                <th>THN</th>
-                <th>KRD</th>
-                <th>MGL</th>
-                <th>TLG</th>
-                <th>SOK</th>
-                <th>STR</th>
-                <th>PCP</th>
-                <th>Kejujuran</th>
-              </tr>
-              </thead>
-              <tbody>
-                <?php
 
-                while ($row = mysqli_fetch_assoc($purata_fakulti_FTMK)) {
-                  echo '<tr>';
-                  if (!$row['fakulti']) {
-                    echo '<td>FTMK</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                  } else {
-                    echo '<td>'.$row['fakulti'].'</td>';
-                    echo '<td>'.$row['avg_agg'].'</td>';
-                    echo '<td>'.$row['avg_ana'].'</td>';
-                    echo '<td>'.$row['avg_aut'].'</td>';
-                    echo '<td>'.$row['avg_ber'].'</td>';
-                    echo '<td>'.$row['avg_eks'].'</td>';
-                    echo '<td>'.$row['avg_int'].'</td>';
-                    echo '<td>'.$row['avg_itr'].'</td>';
-                    echo '<td>'.$row['avg_kep'].'</td>';
-                    echo '<td>'.$row['avg_ket'].'</td>';
-                    echo '<td>'.$row['avg_kri'].'</td>';
-                    echo '<td>'.$row['avg_mng'].'</td>';
-                    echo '<td>'.$row['avg_mnl'].'</td>';
-                    echo '<td>'.$row['avg_skg'].'</td>';
-                    echo '<td>'.$row['avg_str'].'</td>';
-                    echo '<td>'.$row['avg_pcp'].'</td>';
-                    echo '<td>'.$row['avg_kjj'].'</td>';
-                  }
-                  echo '</tr>';
-                }
-
-                while ($row = mysqli_fetch_assoc($purata_fakulti_FKE)) {
-                  echo '<tr>';
-                  if (!$row['fakulti']) {
-                    echo '<td>FKE</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                  } else {
-                    echo '<td>'.$row['fakulti'].'</td>';
-                    echo '<td>'.$row['avg_agg'].'</td>';
-                    echo '<td>'.$row['avg_ana'].'</td>';
-                    echo '<td>'.$row['avg_aut'].'</td>';
-                    echo '<td>'.$row['avg_ber'].'</td>';
-                    echo '<td>'.$row['avg_eks'].'</td>';
-                    echo '<td>'.$row['avg_int'].'</td>';
-                    echo '<td>'.$row['avg_itr'].'</td>';
-                    echo '<td>'.$row['avg_kep'].'</td>';
-                    echo '<td>'.$row['avg_ket'].'</td>';
-                    echo '<td>'.$row['avg_kri'].'</td>';
-                    echo '<td>'.$row['avg_mng'].'</td>';
-                    echo '<td>'.$row['avg_mnl'].'</td>';
-                    echo '<td>'.$row['avg_skg'].'</td>';
-                    echo '<td>'.$row['avg_str'].'</td>';
-                    echo '<td>'.$row['avg_pcp'].'</td>';
-                    echo '<td>'.$row['avg_kjj'].'</td>';
-                  }
-                  echo '</tr>';
-                }
-
-                while ($row = mysqli_fetch_assoc($purata_fakulti_FKM)) {
-                  echo '<tr>';
-                  if (!$row['fakulti']) {
-                    echo '<td>FKM</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                  } else {
-                    echo '<td>'.$row['fakulti'].'</td>';
-                    echo '<td>'.$row['avg_agg'].'</td>';
-                    echo '<td>'.$row['avg_ana'].'</td>';
-                    echo '<td>'.$row['avg_aut'].'</td>';
-                    echo '<td>'.$row['avg_ber'].'</td>';
-                    echo '<td>'.$row['avg_eks'].'</td>';
-                    echo '<td>'.$row['avg_int'].'</td>';
-                    echo '<td>'.$row['avg_itr'].'</td>';
-                    echo '<td>'.$row['avg_kep'].'</td>';
-                    echo '<td>'.$row['avg_ket'].'</td>';
-                    echo '<td>'.$row['avg_kri'].'</td>';
-                    echo '<td>'.$row['avg_mng'].'</td>';
-                    echo '<td>'.$row['avg_mnl'].'</td>';
-                    echo '<td>'.$row['avg_skg'].'</td>';
-                    echo '<td>'.$row['avg_str'].'</td>';
-                    echo '<td>'.$row['avg_pcp'].'</td>';
-                    echo '<td>'.$row['avg_kjj'].'</td>';
-                  }
-                  echo '</tr>';
-                }
-
-                $i = 1;
-
-                while ($row = mysqli_fetch_assoc($purata_fakulti_FKEKK)) {
-                  echo '<tr>';
-                  if (!$row['fakulti']) {
-                    echo '<td>FKEKK</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                  } else {
-                    echo '<td>'.$row['fakulti'].'</td>';
-                    echo '<td>'.$row['avg_agg'].'</td>';
-                    echo '<td>'.$row['avg_ana'].'</td>';
-                    echo '<td>'.$row['avg_aut'].'</td>';
-                    echo '<td>'.$row['avg_ber'].'</td>';
-                    echo '<td>'.$row['avg_eks'].'</td>';
-                    echo '<td>'.$row['avg_int'].'</td>';
-                    echo '<td>'.$row['avg_itr'].'</td>';
-                    echo '<td>'.$row['avg_kep'].'</td>';
-                    echo '<td>'.$row['avg_ket'].'</td>';
-                    echo '<td>'.$row['avg_kri'].'</td>';
-                    echo '<td>'.$row['avg_mng'].'</td>';
-                    echo '<td>'.$row['avg_mnl'].'</td>';
-                    echo '<td>'.$row['avg_skg'].'</td>';
-                    echo '<td>'.$row['avg_str'].'</td>';
-                    echo '<td>'.$row['avg_pcp'].'</td>';
-                    echo '<td>'.$row['avg_kjj'].'</td>';
-                  }
-                  echo '</tr>';
-                }
-
-                  while ($row = mysqli_fetch_assoc($purata_fakulti_FKP)) {
-                    echo '<tr>';
-                    if (!$row['fakulti']) {
-                      echo '<td>FKP</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                      echo '<td>0</td>';
-                    } else {
-                      echo '<td>'.$row['fakulti'].'</td>';
-                      echo '<td>'.$row['avg_agg'].'</td>';
-                      echo '<td>'.$row['avg_ana'].'</td>';
-                      echo '<td>'.$row['avg_aut'].'</td>';
-                      echo '<td>'.$row['avg_ber'].'</td>';
-                      echo '<td>'.$row['avg_eks'].'</td>';
-                      echo '<td>'.$row['avg_int'].'</td>';
-                      echo '<td>'.$row['avg_itr'].'</td>';
-                      echo '<td>'.$row['avg_kep'].'</td>';
-                      echo '<td>'.$row['avg_ket'].'</td>';
-                      echo '<td>'.$row['avg_kri'].'</td>';
-                      echo '<td>'.$row['avg_mng'].'</td>';
-                      echo '<td>'.$row['avg_mnl'].'</td>';
-                      echo '<td>'.$row['avg_skg'].'</td>';
-                      echo '<td>'.$row['avg_str'].'</td>';
-                      echo '<td>'.$row['avg_pcp'].'</td>';
-                      echo '<td>'.$row['avg_kjj'].'</td>';
-                    }
-                    echo '</tr>';
-                  }
-
-                while ($row = mysqli_fetch_assoc($purata_fakulti_FTK)) {
-                  echo '<tr>';
-                  if (!$row['fakulti']) {
-                    echo '<td>FTK</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                  } else {
-                    echo '<td>'.$row['fakulti'].'</td>';
-                    echo '<td>'.$row['avg_agg'].'</td>';
-                    echo '<td>'.$row['avg_ana'].'</td>';
-                    echo '<td>'.$row['avg_aut'].'</td>';
-                    echo '<td>'.$row['avg_ber'].'</td>';
-                    echo '<td>'.$row['avg_eks'].'</td>';
-                    echo '<td>'.$row['avg_int'].'</td>';
-                    echo '<td>'.$row['avg_itr'].'</td>';
-                    echo '<td>'.$row['avg_kep'].'</td>';
-                    echo '<td>'.$row['avg_ket'].'</td>';
-                    echo '<td>'.$row['avg_kri'].'</td>';
-                    echo '<td>'.$row['avg_mng'].'</td>';
-                    echo '<td>'.$row['avg_mnl'].'</td>';
-                    echo '<td>'.$row['avg_skg'].'</td>';
-                    echo '<td>'.$row['avg_str'].'</td>';
-                    echo '<td>'.$row['avg_pcp'].'</td>';
-                    echo '<td>'.$row['avg_kjj'].'</td>';
-                  }
-                  echo '</tr>';
-                }
-                
-                while ($row = mysqli_fetch_assoc($purata_fakulti_FPTT)) {
-                  echo '<tr>';
-                  if (!$row['fakulti']) {
-                    echo '<td>FPTT</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                    echo '<td>0</td>';
-                  } else {
-                    echo '<td>'.$row['fakulti'].'</td>';
-                    echo '<td>'.$row['avg_agg'].'</td>';
-                    echo '<td>'.$row['avg_ana'].'</td>';
-                    echo '<td>'.$row['avg_aut'].'</td>';
-                    echo '<td>'.$row['avg_ber'].'</td>';
-                    echo '<td>'.$row['avg_eks'].'</td>';
-                    echo '<td>'.$row['avg_int'].'</td>';
-                    echo '<td>'.$row['avg_itr'].'</td>';
-                    echo '<td>'.$row['avg_kep'].'</td>';
-                    echo '<td>'.$row['avg_ket'].'</td>';
-                    echo '<td>'.$row['avg_kri'].'</td>';
-                    echo '<td>'.$row['avg_mng'].'</td>';
-                    echo '<td>'.$row['avg_mnl'].'</td>';
-                    echo '<td>'.$row['avg_skg'].'</td>';
-                    echo '<td>'.$row['avg_str'].'</td>';
-                    echo '<td>'.$row['avg_pcp'].'</td>';
-                    echo '<td>'.$row['avg_kjj'].'</td>';
-                  }
-                  echo '</tr>';
-                }
-
-                ?>
-              </tbody>
-            </table>
-            <div class="box-footer">
-              <div class="pull-right">
-                <table class="table table-condensed">
-                  <thead>
-                    <th> </th>
-                    <th> </th>
-                    <th> </th>
-                    <th class="pull-right"> Lagenda </th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                    <td>
-                      <b>AGG</b> : Aggresif
-                    </td>
-                    <td>
-                      <b>ANA</b> : Analitikal
-                    </td>
-                    <td>
-                      <b>AUT</b> : Autonomi
-                    </td>
-                    <td>
-                      <b>BSD</b> : Bersandar
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <b>EKS</b> : Ekstrovert
-                    </td>
-                    <td>
-                      <b>ITL</b> : Intelektual
-                    </td>
-                    <td>
-                      <b>INT</b> : Introvert
-                    </td>
-                    <td>
-                      <b>KEP</b> : Kepelbagaian
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <b>THN</b> : Ketahanan
-                    </td>
-                    <td>
-                      <b>KRD</b> : Kritik Diri
-                    </td>
-                    <td>
-                      <b>MGL</b> : Mengawal
-                    </td>
-                    <td>
-                      <b>TLG</b> : Menolong
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <b>SOK</b> : Sokongan
-                    </td>
-                    <td>
-                      <b>STR</b> : Struktur
-                    </td>
-                    <td>
-                      <b>PCP</b> : Pencapaian
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
+    <div class="row">
+      <div class="col-lg-12">
+      <div class="box box-warning">
+        <div class="box-header">
+          <h3 class="box-title">Bilangan Skor Tinggi , Rendah & Sederhana</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
             </div>
-            <!-- /.box-footer-->
-          </div>
-          <!-- /.box-body -->
         </div>
-      </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+          <div class="col-md-12">
+            <!-- Custom Tabs -->
+            <div class="nav-tabs-custom">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Markah Rendah</a></li>
+                <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Markah Sederhana</a></li>
+                <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Markah Tinggi</a></li>
+                <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="true">Data Lanjut</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                  <table id="example1" class="table table-condensed table-striped">
+                    <thead>
+                    <tr>
+                      <th>Fakulti</th>
+                      <th>AGG</th>
+                      <th>ANA</th>
+                      <th>AUT</th>
+                      <th>BSD</th>
+                      <th>EKS</th>
+                      <th>ITL</th>
+                      <th>INT</th>
+                      <th>KEP</th>
+                      <th>THN</th>
+                      <th>KRD</th>
+                      <th>MGL</th>
+                      <th>TLG</th>
+                      <th>SOK</th>
+                      <th>STR</th>
+                      <th>PCP</th>
+                      <th>Kejujuran</th>
+                      <th>Bil. Pelajar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      echo "<tr>";
+                        echo '<td><span class="label label-warning">FTMK</span></td>';
+                      foreach ($rendah_fakulti_FTMK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFTMK);
+                      echo '<td>';
+                      echo $bilFTMK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
 
-    <!-- /.content -->
+                      echo "<tr>";
+                        echo '<td><span class="label label-warning bg-purple">FTK</span></td>';
+                      foreach ($rendah_fakulti_FTK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFTK);
+                      echo '<td>';
+                      echo $bilFTK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-default bg-orange">FKE</span></td>';
+                      foreach ($rendah_fakulti_FKE as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKE);
+                      echo '<td>';
+                      echo $bilFKE;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-success">FKM</span></td>';
+                      foreach ($rendah_fakulti_FKM as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKM);
+                      echo '<td>';
+                      echo $bilFKM;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-info">FKEKK</span></td>';
+                      foreach ($rendah_fakulti_FKEKK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKEKK);
+                      echo '<td>';
+                      echo $bilFKEKK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-danger">FKP</span></td>';
+                      foreach ($rendah_fakulti_FKP as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKP);
+                      echo '<td>';
+                      echo $bilFKP;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-default bg-purple">FPTT</span></td>';
+                      foreach ($rendah_fakulti_FPTT as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFPTT);
+                      echo '<td>';
+                      echo $bilFPTT;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      // echo "<tr>";
+                      // echo '<td><span class="label label-default bg-purple">FPTT</span></td>';
+                      // foreach ($purata_fakulti_FPTT as $result) {
+                      //   echo '<td>' . $result . '</td>';
+                      // }
+                      // $row = mysqli_fetch_assoc($totalBilanganFPTT);
+                      // echo '<td>';
+                      //   echo $row['bil'];
+                      // echo '</td>';
+                      // echo "</tr>";
+
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane" id="tab_2">
+                  <table id="example2" class="table table-condensed table-striped">
+                    <thead>
+                    <tr>
+                      <th>Fakulti</th>
+                      <th>AGG</th>
+                      <th>ANA</th>
+                      <th>AUT</th>
+                      <th>BSD</th>
+                      <th>EKS</th>
+                      <th>ITL</th>
+                      <th>INT</th>
+                      <th>KEP</th>
+                      <th>THN</th>
+                      <th>KRD</th>
+                      <th>MGL</th>
+                      <th>TLG</th>
+                      <th>SOK</th>
+                      <th>STR</th>
+                      <th>PCP</th>
+                      <th>Kejujuran</th>
+                      <th>Bil. Pelajar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      echo "<tr>";
+                        echo '<td><span class="label label-warning">FTMK</span></td>';
+                      foreach ($sederhana_fakulti_FTMK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFTMK);
+                      echo '<td>';
+                      echo $bilFTMK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                        echo '<td><span class="label label-warning bg-purple">FTK</span></td>';
+                      foreach ($sederhana_fakulti_FTK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFTK);
+                      echo '<td>';
+                      echo $bilFTK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-default bg-orange">FKE</span></td>';
+                      foreach ($sederhana_fakulti_FKE as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKE);
+                      echo '<td>';
+                      echo $bilFKE;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-success">FKM</span></td>';
+                      foreach ($sederhana_fakulti_FKM as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKM);
+                      echo '<td>';
+                      echo $bilFKM;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-info">FKEKK</span></td>';
+                      foreach ($sederhana_fakulti_FKEKK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKEKK);
+                      echo '<td>';
+                      echo $bilFKEKK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-danger">FKP</span></td>';
+                      foreach ($sederhana_fakulti_FKP as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKP);
+                      echo '<td>';
+                      echo $bilFKP;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-default bg-purple">FPTT</span></td>';
+                      foreach ($sederhana_fakulti_FPTT as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFPTT);
+                      echo '<td>';
+                      echo $bilFPTT;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      // echo "<tr>";
+                      // echo '<td><span class="label label-default bg-purple">FPTT</span></td>';
+                      // foreach ($purata_fakulti_FPTT as $result) {
+                      //   echo '<td>' . $result . '</td>';
+                      // }
+                      // $row = mysqli_fetch_assoc($totalBilanganFPTT);
+                      // echo '<td>';
+                      //   echo $row['bil'];
+                      // echo '</td>';
+                      // echo "</tr>";
+
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_4">
+
+                  <div class="center">
+                    <div class="row">
+                    <div class="col-md-4">
+                    <div class="callout callout-info">
+                      <h4>Info!</h4>
+                      <p>Klik pada butang dibawah untuk memaparkan maklumat lanjut.</p>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+
+                <a href="data_lanjut.php?fakulti=FTMK" class="btn btn-app">
+                  <span class="badge bg-yellow">F T M K</span>
+                  <i class="fa fa-file-o"></i>
+                </a>
+                <a href="data_lanjut.php?fakulti=FKE" class="btn btn-app">
+                  <span class="badge bg-orange">F K E</span>
+                  <i class="fa fa-file-o"></i>
+                </a>
+                <a href="data_lanjut.php?fakulti=FKM" class="btn btn-app">
+                  <span class="badge bg-green">F K M</span>
+                  <i class="fa fa-file-o"></i>
+                </a>
+                <a href="data_lanjut.php?fakulti=FKP" class="btn btn-app">
+                  <span class="badge bg-red">F K P</span>
+                  <i class="fa fa-file-o"></i>
+                </a>
+                <a href="data_lanjut.php?fakulti=FKEKK" class="btn btn-app">
+                  <span class="badge bg-teal">F K E K K</span>
+                  <i class="fa fa-file-o"></i>
+                </a>
+                <a href="data_lanjut.php?fakulti=FTK" class="btn btn-app">
+                  <span class="badge bg-purple">F T K</span>
+                  <i class="fa fa-file-o"></i>
+                </a>
+                <a href="data_lanjut.php?fakulti=FPTT" class="btn btn-app">
+                  <span class="badge bg-purple">F P T T</span>
+                  <i class="fa fa-file-o"></i>
+                </a>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_3">
+                  <table id="example3" class="table table-condensed table-striped">
+                    <thead>
+                    <tr>
+                      <th>Fakulti</th>
+                      <th>AGG</th>
+                      <th>ANA</th>
+                      <th>AUT</th>
+                      <th>BSD</th>
+                      <th>EKS</th>
+                      <th>ITL</th>
+                      <th>INT</th>
+                      <th>KEP</th>
+                      <th>THN</th>
+                      <th>KRD</th>
+                      <th>MGL</th>
+                      <th>TLG</th>
+                      <th>SOK</th>
+                      <th>STR</th>
+                      <th>PCP</th>
+                      <th>Kejujuran</th>
+                      <th>Bil. Pelajar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      echo "<tr>";
+                        echo '<td><span class="label label-warning">FTMK</span></td>';
+                      foreach ($purata_fakulti_FTMK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFTMK);
+                      echo '<td>';
+                        // echo $row['bil'];
+                        echo $bilFTMK;
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                        echo '<td><span class="label label-warning bg-purple">FTK</span></td>';
+                      foreach ($purata_fakulti_FTK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFTK);
+                      echo '<td>';
+                      echo $bilFTK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-default bg-orange">FKE</span></td>';
+                      foreach ($purata_fakulti_FKE as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKE);
+                      echo '<td>';
+                      echo $bilFKE;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-success">FKM</span></td>';
+                      foreach ($purata_fakulti_FKM as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKM);
+                      echo '<td>';
+                      echo $bilFKM;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-info">FKEKK</span></td>';
+                      foreach ($purata_fakulti_FKEKK as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKEKK);
+                      echo '<td>';
+                      echo $bilFKEKK;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-danger">FKP</span></td>';
+                      foreach ($purata_fakulti_FKP as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFKP);
+                      echo '<td>';
+                      echo $bilFKP;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      echo "<tr>";
+                      echo '<td><span class="label label-default bg-purple">FPTT</span></td>';
+                      foreach ($purata_fakulti_FPTT as $result) {
+                        echo '<td>' . $result . '</td>';
+                      }
+                      // $row = mysqli_fetch_assoc($totalBilanganFPTT);
+                      echo '<td>';
+                        echo $bilFPTT;
+                        // echo $row['bil'];
+                      echo '</td>';
+                      echo "</tr>";
+
+                      // echo "<tr>";
+                      // echo '<td><span class="label label-default bg-purple">FPTT</span></td>';
+                      // foreach ($purata_fakulti_FPTT as $result) {
+                      //   echo '<td>' . $result . '</td>';
+                      // }
+                      // $row = mysqli_fetch_assoc($totalBilanganFPTT);
+                      // echo '<td>';
+                      //   echo $row['bil'];
+                      // echo '</td>';
+                      // echo "</tr>";
+
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="pull-right">
+                  <table class="table table-condensed">
+                    <thead>
+                      <th> </th>
+                      <th> </th>
+                      <th> </th>
+                      <th class="pull-right"> Lagenda </th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                      <td>
+                        <b>AGG</b> : Aggresif
+                      </td>
+                      <td>
+                        <b>ANA</b> : Analitikal
+                      </td>
+                      <td>
+                        <b>AUT</b> : Autonomi
+                      </td>
+                      <td>
+                        <b>BSD</b> : Bersandar
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>EKS</b> : Ekstrovert
+                      </td>
+                      <td>
+                        <b>ITL</b> : Intelektual
+                      </td>
+                      <td>
+                        <b>INT</b> : Introvert
+                      </td>
+                      <td>
+                        <b>KEP</b> : Kepelbagaian
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>THN</b> : Ketahanan
+                      </td>
+                      <td>
+                        <b>KRD</b> : Kritik Diri
+                      </td>
+                      <td>
+                        <b>MGL</b> : Mengawal
+                      </td>
+                      <td>
+                        <b>TLG</b> : Menolong
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>SOK</b> : Sokongan
+                      </td>
+                      <td>
+                        <b>STR</b> : Struktur
+                      </td>
+                      <td>
+                        <b>PCP</b> : Pencapaian
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- /.tab-content -->
+            </div>
+            <!-- nav-tabs-custom -->
+          </div>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
   </div>
 </section>
 </div>
@@ -508,6 +657,8 @@ $purata_fakulti_FPTT = purataFakulti('FPTT');
 <script>
   $(function () {
     $("#example1").DataTable();
+    $("#example2").DataTable();
+    $("#example3").DataTable();
 
   });
 
